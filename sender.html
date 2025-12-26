@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sender - Digital Dead Drop</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Sender Page</h1>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="sender.html">Sender</a>
+  <a href="location.html">Location</a>
+  <a href="receiver.html">Receiver</a>
+  <a href="about.html">About</a>
+</nav>
+
+<h2>Drop a Secret Message</h2>
+
+<textarea id="msg" rows="5"></textarea><br>
+<button onclick="dropMessage()">Drop Message</button>
+
+<p id="status" class="message"></p>
+
+<script>
+function dropMessage() {
+    let message = document.getElementById("msg").value;
+    if (message.trim() === "") {
+        document.getElementById("status").innerHTML = "Please type a message first.";
+        return;
+    }
+    localStorage.setItem("secretMessage", message); // store message in browser
+    document.getElementById("status").innerHTML = "Message dropped successfully!";
+    document.getElementById("msg").value = ""; // clear textarea
+}
+</script>
+
+</body>
+</html>

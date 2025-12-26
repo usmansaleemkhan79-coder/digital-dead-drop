@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Receiver - Digital Dead Drop</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Receiver Page</h1>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="sender.html">Sender</a>
+  <a href="location.html">Location</a>
+  <a href="receiver.html">Receiver</a>
+  <a href="about.html">About</a>
+</nav>
+
+<h2>Collect Message</h2>
+
+<button onclick="collectMessage()">Collect Message</button>
+<p id="result" class="message"></p>
+
+<script>
+function collectMessage() {
+    let message = localStorage.getItem("secretMessage"); // read stored message
+    if (message === null || message === "") {
+        document.getElementById("result").innerHTML = "No message available.";
+    } else {
+        document.getElementById("result").innerHTML = "Collected Message: " + message;
+        localStorage.removeItem("secretMessage"); // delete after reading
+    }
+}
+</script>
+
+</body>
+</html>

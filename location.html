@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dead Drop Location</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Dead Drop Location</h1>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="sender.html">Sender</a>
+  <a href="location.html">Location</a>
+  <a href="receiver.html">Receiver</a>
+  <a href="about.html">About</a>
+</nav>
+
+<h2>Check Dead Drop</h2>
+
+<button onclick="checkDrop()">Check Location</button>
+<p id="output" class="message"></p>
+
+<script>
+function checkDrop() {
+    let message = localStorage.getItem("secretMessage"); // read from storage
+    if (message === null || message === "") {
+        document.getElementById("output").innerHTML = "No message found at this location.";
+    } else {
+        document.getElementById("output").innerHTML = "A message is hidden at this location.";
+    }
+}
+</script>
+
+</body>
+</html>
